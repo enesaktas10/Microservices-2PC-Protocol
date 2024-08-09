@@ -1,4 +1,6 @@
 using Coordinator.Modes.Contexts;
+using Coordinator.Services;
+using Coordinator.Services.Abstraction;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,8 @@ builder.Services.AddDbContext<TwoPhaseCommitContext>(options =>
 builder.Services.AddHttpClient("OrderAPI", client => client.BaseAddress = new Uri("https://localhost:7085/"));
 builder.Services.AddHttpClient("PaymentAPI", client => client.BaseAddress = new Uri("https://localhost:7146/"));
 builder.Services.AddHttpClient("StockAPI", client => client.BaseAddress = new Uri("https://localhost:7004/"));
+
+builder.Services.AddSingleton<ITransactionService, TransactionService>();
 
 var app = builder.Build();
 
