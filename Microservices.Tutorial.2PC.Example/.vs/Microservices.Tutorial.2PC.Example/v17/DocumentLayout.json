@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\enes\\Desktop\\StrongConsistency-2PC\\Microservices.Tutorial.2PC.Example\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3BB2CDDD-7AF9-47E9-8F12-9A02E6D58DF2}|Order.API\\Order.API.csproj|c:\\users\\enes\\desktop\\strongconsistency-2pc\\microservices.tutorial.2pc.example\\order.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BB2CDDD-7AF9-47E9-8F12-9A02E6D58DF2}|Order.API\\Order.API.csproj|solutionrelative:order.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F0332A52-37DF-4E86-AE32-1E7537418EE5}|Coordinator\\Coordinator.csproj|c:\\users\\enes\\desktop\\strongconsistency-2pc\\microservices.tutorial.2pc.example\\coordinator\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0332A52-37DF-4E86-AE32-1E7537418EE5}|Coordinator\\Coordinator.csproj|solutionrelative:coordinator\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\enes\\Desktop\\StrongConsistency-2PC\\Microservices.Tutorial.2PC.Example\\Order.API\\Program.cs",
-              "RelativeDocumentMoniker": "Order.API\\Program.cs",
-              "ToolTip": "C:\\Users\\enes\\Desktop\\StrongConsistency-2PC\\Microservices.Tutorial.2PC.Example\\Order.API\\Program.cs",
-              "RelativeToolTip": "Order.API\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABGAAAA",
+              "Title": "TransactionService.cs",
+              "DocumentMoniker": "C:\\Users\\enes\\Desktop\\StrongConsistency-2PC\\Microservices.Tutorial.2PC.Example\\Coordinator\\Services\\TransactionService.cs",
+              "RelativeDocumentMoniker": "Coordinator\\Services\\TransactionService.cs",
+              "ToolTip": "C:\\Users\\enes\\Desktop\\StrongConsistency-2PC\\Microservices.Tutorial.2PC.Example\\Coordinator\\Services\\TransactionService.cs",
+              "RelativeToolTip": "Coordinator\\Services\\TransactionService.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwFEAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T15:44:34.688Z",
+              "WhenOpened": "2024-08-09T19:37:57.694Z",
               "EditorCaption": ""
             }
           ]

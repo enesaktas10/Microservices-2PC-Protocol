@@ -8,17 +8,13 @@ namespace Coordinator.Services
 {
     public class TransactionService(IHttpClientFactory _httpClientFactory,TwoPhaseCommitContext _context) : ITransactionService
     {
-        //private readonly TwoPhaseCommitContext _context;
-
-        //public TransactionService(TwoPhaseCommitContext context)
-        //{
-        //    _context = context;
-        //}
 
         private HttpClient _orderHttpClient = _httpClientFactory.CreateClient("OrderAPI");
         private HttpClient _stockHttpClient = _httpClientFactory.CreateClient("StockAPI");
         private HttpClient _paymentHttpClient = _httpClientFactory.CreateClient("PaymentAPI");
 
+
+        
         public async Task<Guid> CreateTransactionAsync()
         {
             //Random Bir transactionId olusturuyoruz
@@ -76,6 +72,7 @@ namespace Coordinator.Services
         public async Task<bool> CheckReadyServicesAsync(Guid transactionId)
         {
             //bu kisimda return degeri true olursa 1.asama basarili bir sekilde tamamlanmis olur
+            //ilgili transactionId`ye ait nodelar Readytypelarini kontrol ediyoruz hepsi ready ise geriye return ile true degeri donuyor
             return (await _context.NodeStates
                 .Where(ns => ns.TransactionId == transactionId)
                 .ToListAsync()).TrueForAll(ns => ns.IsReady == Enums.ReadyType.Ready);
