@@ -7,7 +7,7 @@ app.MapGet("/ready", () =>
 {
     Console.WriteLine("Order services is ready");
     return true;
-    //return false;
+    //return false; ready durumunu basarisiza cekrek test yapabilirsin
 });
 
 app.MapGet("/commit", () =>
