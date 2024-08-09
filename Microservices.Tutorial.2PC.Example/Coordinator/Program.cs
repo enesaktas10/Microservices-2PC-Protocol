@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -19,7 +18,7 @@ builder.Services.AddHttpClient("OrderAPI", client => client.BaseAddress = new Ur
 builder.Services.AddHttpClient("PaymentAPI", client => client.BaseAddress = new Uri("https://localhost:7146/"));
 builder.Services.AddHttpClient("StockAPI", client => client.BaseAddress = new Uri("https://localhost:7004/"));
 
-builder.Services.AddSingleton<ITransactionService, TransactionService>();
+builder.Services.AddTransient<ITransactionService, TransactionService>();
 
 var app = builder.Build();
 
@@ -30,10 +29,25 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.MapGet("/create-order-transaction",async (ITransactionService transactionService) => 
+{
+    //Phase 1 - Prepare
+    var transactionId =await transactionService.CreateTransactionAsync();
+    await transactionService.PrepareServicesAsync(transactionId);
+    bool transactionState = await transactionService.CheckReadyServicesAsync(transactionId);
 
-app.UseAuthorization();
+    if (transactionState)
+    {
+        //Phase 2
+        await transactionService.CommitAsync(transactionId);
+        transactionState = await transactionService.CheckTransactionStateServicesAsync(transactionId);
+    }
 
-app.MapControllers();
+    if (!transactionState)
+    {
+        await transactionService.RollbackAsync(transactionId);
+    }
+
+});
 
 app.Run();
